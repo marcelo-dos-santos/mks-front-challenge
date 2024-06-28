@@ -7,7 +7,11 @@ export const Container = styled.div`
   box-shadow: -2px 2px 10px 0px #0000000d;
   border: 1px;
   border-radius: 10px;
-  margin: 0 34px 0 27px;
+  margin: 0 34px 28px 27px;
+
+  .price {
+    font-weight: 700;
+  }
 `;
 
 export const ProductDetails = styled.div`
@@ -51,5 +55,16 @@ export const ProductDetails = styled.div`
     margin-bottom: 14px;
     width: 46px;
     height: 57px;
+  }
+`;
+
+export const ProductQuant = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  > span {
+    font-size: 10px;
+    line-height: 6.1px;
+    margin-bottom: 4px;
   }
 `;

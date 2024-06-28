@@ -9,6 +9,10 @@ export const Container = styled.div`
     "header"
     "content"
     "footer";
+
+  /* .cartContainer {
+    display: none;
+  } */
 `;
 
 export const Content = styled.div`
@@ -44,14 +48,35 @@ export const CartContent = styled.div`
   flex-direction: column;
   overflow-y: auto;
 
-  > h2 {
-    color: white;
-    margin-bottom: 16px;
-    margin: 36px 0 65px 47px;
-    max-width: 180px;
-    font-size: 27px;
-    font-weight: 700;
-    line-height: 32.91px;
-    text-align: left;
+  .title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    > span {
+      font-size: 28px;
+      font-weight: 400;
+      line-height: 15px;
+      color: #ffffff;
+      padding: 15px;
+      border: 1px solid black;
+      border-radius: 25px;
+      background-color: black;
+      background-clip: padding-box;
+      margin-bottom: 49px;
+      margin-right: 29px;
+      cursor: pointer;
+    }
+
+    > h2 {
+      color: white;
+      margin-bottom: 16px;
+      margin: 36px 0 65px 47px;
+      max-width: 180px;
+      font-size: 27px;
+      font-weight: 700;
+      line-height: 32.91px;
+      text-align: left;
+    }
   }
 `;
