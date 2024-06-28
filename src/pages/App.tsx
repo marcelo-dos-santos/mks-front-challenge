@@ -36,6 +36,11 @@ function App() {
           <div className="cartProducts">
             <CartProduct title="Apple Watch Series 4 GPS" price="R$399" />
             <CartProduct title="Apple Watch Series 4 GPS" price="R$399" />
+            <CartProduct title="Apple Watch Series 4 GPS" price="R$399" />
+            <CartProduct title="Apple Watch Series 4 GPS" price="R$399" />
+            <CartProduct title="Apple Watch Series 4 GPS" price="R$399" />
+            <CartProduct title="Apple Watch Series 4 GPS" price="R$399" />
+            <CartProduct title="Apple Watch Series 4 GPS" price="R$399" />
           </div>
         </CartContent>
       </CartContainer>

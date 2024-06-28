@@ -51,7 +51,11 @@ export const CartContent = styled.div`
   flex: 1;
   display: flex;
   flex-direction: column;
-  overflow-y: auto;
+
+  .cartProducts {
+    max-height: 600px;
+    overflow-y: auto;
+  }
 
   .title {
     display: flex;

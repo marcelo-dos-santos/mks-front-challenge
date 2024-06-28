@@ -7,7 +7,7 @@ export const Container = styled.div`
   box-shadow: -2px 2px 10px 0px #0000000d;
   border: 1px;
   border-radius: 10px;
-  margin: 0 34px 28px 27px;
+  margin: 20px 32px 28px 27px;
 
   > span {
     position: relative;
