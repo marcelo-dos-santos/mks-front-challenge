@@ -9,6 +9,7 @@ export function Button({
   title: string;
   loading?: boolean;
   icon: any;
+  onClick: () => void
 }) {
   return (
     <Container type="button" disabled={loading} {...rest}>

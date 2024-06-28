@@ -10,9 +10,14 @@ export const Container = styled.div`
     "content"
     "footer";
 
-  /* .cartContainer {
-    display: none;
-  } */
+  .cartContainer {
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;
+
+    &.visible {
+      transform: translateX(0);
+    }
+  }
 `;
 
 export const Content = styled.div`

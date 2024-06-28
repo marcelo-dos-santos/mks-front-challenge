@@ -21,8 +21,9 @@ export function CartProduct({
           <span>Qtd:</span>
           <QuantityButton />
         </ProductQuant>
-        <span className="price">R$310</span>
+        <span className="price">{price}</span>
       </ProductDetails>
+      <span>X</span>
     </Container>
   );
 }

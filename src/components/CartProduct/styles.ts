@@ -9,6 +9,23 @@ export const Container = styled.div`
   border-radius: 10px;
   margin: 0 34px 28px 27px;
 
+  > span {
+    position: relative;
+    top: -164px;
+    left: 362px;
+    font-size: 9px;
+    font-weight: 400;
+    line-height: 16px;
+    color: white;
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 50%;
+    background-color: black;
+    background-clip: padding-box;
+    cursor: pointer;
+    user-select: none;
+  }
+
   .price {
     font-weight: 700;
   }

@@ -26,6 +26,10 @@ export const Container = styled.div`
     margin-right: 3px;
   }
 
+  .quantity {
+    cursor: default;
+  }
+
   .separator {
     height: 12px;
     border-left: 1px solid #bfbfbf;
