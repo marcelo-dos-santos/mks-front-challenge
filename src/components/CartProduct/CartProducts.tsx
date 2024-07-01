@@ -2,14 +2,12 @@ import { Container, ProductDetails, ProductQuant } from "./styles";
 import { QuantityButton } from "../QuantityButton/QuantityButton";
 import productImg from "../../assets/apple-watch.png";
 
-export function CartProduct({
-  title,
-  price,
-  ...rest
-}: {
+interface CartProductProps {
   title: string;
   price: string;
-}) {
+}
+
+export function CartProduct({ title, price, ...rest }: CartProductProps) {
   return (
     <Container {...rest}>
       <ProductDetails>

@@ -5,25 +5,71 @@ import { CartProduct } from "../components/CartProduct/CartProducts";
 import { Container, Content, CartContainer, CartContent } from "./styles";
 import { Products } from "../components/Products/Products";
 
+interface Product {
+  title: string;
+  price: number;
+}
+
 function App() {
   const [isCartVisible, setIsCartVisible] = useState(false);
+  const [cartProducts, setCartProducts] = useState<Product[]>([]);
 
   const toggleCartVisibility = () => {
     setIsCartVisible(!isCartVisible);
   };
 
+  const addToCart = (product: Product) => {
+    setCartProducts((prevProducts) => [...prevProducts, product]);
+  };
+
+  const total = cartProducts.reduce((sum, product) => sum + product.price, 0);
+
+  const formattedTotal = total.toFixed(2);
+
   return (
     <Container>
       <Header toggleCartVisibility={toggleCartVisibility} />
       <Content>
-        <Products title="Apple Watch Series 4 GPS" price="49,97" />
-        <Products title="Apple Watch Series 4 GPS" price="49,97" />
-        <Products title="Apple Watch Series 4 GPS" price="49,97" />
-        <Products title="Apple Watch Series 4 GPS" price="49,97" />
-        <Products title="Apple Watch Series 4 GPS" price="49,97" />
-        <Products title="Apple Watch Series 4 GPS" price="49,97" />
-        <Products title="Apple Watch Series 4 GPS" price="49,97" />
-        <Products title="Apple Watch Series 4 GPS" price="49,97" />
+        <Products
+          title="Apple Watch Series 4 GPS"
+          price={49.97}
+          addToCart={addToCart}
+        />
+        <Products
+          title="Apple Watch Series 4 GPS"
+          price={49.97}
+          addToCart={addToCart}
+        />
+        <Products
+          title="Apple Watch Series 4 GPS"
+          price={49.97}
+          addToCart={addToCart}
+        />
+        <Products
+          title="Apple Watch Series 4 GPS"
+          price={49.97}
+          addToCart={addToCart}
+        />
+        <Products
+          title="Apple Watch Series 4 GPS"
+          price={49.97}
+          addToCart={addToCart}
+        />
+        <Products
+          title="Apple Watch Series 4 GPS"
+          price={49.97}
+          addToCart={addToCart}
+        />
+        <Products
+          title="Apple Watch Series 4 GPS"
+          price={49.97}
+          addToCart={addToCart}
+        />
+        <Products
+          title="Apple Watch Series 4 GPS"
+          price={49.97}
+          addToCart={addToCart}
+        />
       </Content>
       <CartContainer
         className={`cartContainer ${isCartVisible ? "visible" : ""}`}
@@ -34,12 +80,17 @@ function App() {
             <span onClick={toggleCartVisibility}>X</span>
           </div>
           <div className="cartProducts">
-            <CartProduct title="Apple Watch Series 4 GPS" price="R$399" />
-            <CartProduct title="Apple Watch Series 4 GPS" price="R$399" />
+            {cartProducts.map((product, index) => (
+              <CartProduct
+                key={index}
+                title={product.title}
+                price={`R$${product.price}`}
+              />
+            ))}
           </div>
           <div className="total">
             <span>Total:</span>
-            <span>R$798</span>
+            <span>R${formattedTotal}</span>
           </div>
           <button className="checkout">
             <span>Finalizar Compra</span>
