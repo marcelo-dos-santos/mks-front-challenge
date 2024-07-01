@@ -13,11 +13,11 @@ export const Container = styled.div`
     position: relative;
     top: -164px;
     left: 362px;
-    font-size: 9px;
+    font-size: 10px;
     font-weight: 400;
     line-height: 16px;
     color: white;
-    padding: 10px;
+    padding: 13px;
     border: 1px solid black;
     border-radius: 50%;
     background-color: black;

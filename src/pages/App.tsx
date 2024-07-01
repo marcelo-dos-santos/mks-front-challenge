@@ -42,7 +42,7 @@ function App() {
             <span>R$798</span>
           </div>
           <button className="checkout">
-            <span>Finalizar compra</span>
+            <span>Finalizar Compra</span>
           </button>
         </CartContent>
       </CartContainer>
