@@ -1,6 +1,8 @@
 import { styled } from "styled-components";
 
 export const Container = styled.div`
+  max-width: 218px;
+  max-height: 285px;
   width: 218px;
   height: 285px;
   box-shadow: 0px 2px 8px 0px #00000022;
@@ -8,7 +10,6 @@ export const Container = styled.div`
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
   background: #ffffff;
-  margin: 0px 16px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;

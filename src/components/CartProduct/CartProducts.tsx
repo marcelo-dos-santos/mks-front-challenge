@@ -5,9 +5,19 @@ import productImg from "../../assets/apple-watch.png";
 interface CartProductProps {
   title: string;
   price: string;
+  onRemove: () => void;
 }
 
-export function CartProduct({ title, price, ...rest }: CartProductProps) {
+export function CartProduct({
+  title,
+  price,
+  onRemove,
+  ...rest
+}: CartProductProps) {
+  const handleRemoveClick = () => {
+    onRemove();
+  };
+
   return (
     <Container {...rest}>
       <ProductDetails>
@@ -21,7 +31,7 @@ export function CartProduct({ title, price, ...rest }: CartProductProps) {
         </ProductQuant>
         <span className="price">{price}</span>
       </ProductDetails>
-      <span>X</span>
+      <span onClick={handleRemoveClick}>X</span>
     </Container>
   );
 }
