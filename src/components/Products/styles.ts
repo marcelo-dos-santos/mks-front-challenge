@@ -1,10 +1,10 @@
 import { styled } from "styled-components";
 
 export const Container = styled.div`
-  max-width: 218px;
-  max-height: 285px;
-  width: 218px;
-  height: 285px;
+  max-width: 272px;
+  max-height: 320px;
+  width: 272px;
+  height: 320px;
   box-shadow: 0px 2px 8px 0px #00000022;
   border: 1px;
   border-top-left-radius: 10px;
@@ -59,6 +59,7 @@ export const ProductDetails = styled.div`
   .productTitleAndPrice {
     display: flex;
     justify-content: space-between;
+    gap: 20px;
 
     > h1 {
       display: flex;
@@ -68,7 +69,7 @@ export const ProductDetails = styled.div`
       font-weight: 400;
       line-height: 19px;
       margin-bottom: 12px;
-      max-width: 124px;
+      width: 124px;
     }
   }
 

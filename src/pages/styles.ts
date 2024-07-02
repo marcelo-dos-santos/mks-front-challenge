@@ -28,7 +28,7 @@ export const Content = styled.div`
   grid-template-columns: repeat(auto-fit, minmax(218px, 1fr));
 
   @media (min-width: 768px) {
-    max-width: 998px;
+    max-width: 1183px;
     margin: 50px auto;
   }
 `;
@@ -51,7 +51,7 @@ export const CartContent = styled.div`
   display: flex;
   flex-direction: column;
   position: relative;
-  padding-bottom: 97px; /* Height of the checkout button */
+  padding-bottom: 97px;
 
   .cartProducts {
     max-height: 555px;
