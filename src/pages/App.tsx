@@ -12,6 +12,7 @@ interface Product {
   price: number;
   description: string;
   photo: string;
+  quantity: number;
 }
 
 const baseURL =
@@ -28,7 +29,19 @@ function App() {
   };
 
   const addToCart = (product: Product) => {
-    setCartProducts((prevProducts) => [...prevProducts, product]);
+    setCartProducts((prevProducts) => {
+      const productIndex = prevProducts.findIndex(
+        (cartProduct) => cartProduct.id === product.id
+      );
+
+      if (productIndex !== -1) {
+        const updatedProducts = [...prevProducts];
+        updatedProducts[productIndex].quantity += 1;
+        return updatedProducts;
+      }
+
+      return [...prevProducts, { ...product, quantity: 1 }];
+    });
   };
 
   const removeFromCart = (productToRemove: Product) => {
@@ -55,6 +68,7 @@ function App() {
         const products = response.data.products.map((product: any) => ({
           ...product,
           price: parseFloat(product.price),
+          quantity: 1,
         }));
 
         setProductsFromAPI(products);
@@ -67,7 +81,9 @@ function App() {
   }, []);
 
   useEffect(() => {
-    setQtdProducts(cartProducts.length);
+    setQtdProducts(
+      cartProducts.reduce((acc, product) => acc + product.quantity, 0)
+    );
   }, [cartProducts]);
 
   return (
@@ -103,6 +119,7 @@ function App() {
                 name={product.name}
                 photo={product.photo}
                 price={`R$${product.price}`}
+                quantity={product.quantity}
                 onRemove={() => removeFromCart(product)}
               />
             ))}

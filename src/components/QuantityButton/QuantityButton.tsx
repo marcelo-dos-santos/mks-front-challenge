@@ -1,8 +1,12 @@
 import { useState } from "react";
 import { Container } from "./styles";
 
-export function QuantityButton() {
-  const [quantity, setQuantity] = useState(1);
+interface QuantityButtonProps {
+  initialQuantity: number;
+}
+
+export function QuantityButton({ initialQuantity }: QuantityButtonProps) {
+  const [quantity, setQuantity] = useState(initialQuantity);
 
   const handleIncrement = () => {
     setQuantity((prevQuantity) => (prevQuantity < 99 ? prevQuantity + 1 : 99));
