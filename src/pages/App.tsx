@@ -10,6 +10,7 @@ interface Product {
   id: number;
   name: string;
   price: number;
+  description: string;
   photo: string;
 }
 
@@ -20,6 +21,7 @@ function App() {
   const [isCartVisible, setIsCartVisible] = useState(false);
   const [cartProducts, setCartProducts] = useState<Product[]>([]);
   const [productsFromAPI, setProductsFromAPI] = useState<Product[]>([]);
+  const [qtdProducts, setQtdProducts] = useState(0);
 
   const toggleCartVisibility = () => {
     setIsCartVisible(!isCartVisible);
@@ -64,15 +66,24 @@ function App() {
     fetchProducts();
   }, []);
 
+  useEffect(() => {
+    setQtdProducts(cartProducts.length);
+  }, [cartProducts]);
+
   return (
     <Container>
-      <Header toggleCartVisibility={toggleCartVisibility} />
+      <Header
+        toggleCartVisibility={toggleCartVisibility}
+        productQtd={qtdProducts}
+      />
       <Content>
         {productsFromAPI.map((product) => (
           <Products
             key={product.id}
             title={product.name}
             price={product.price}
+            description={product.description}
+            photo={product.photo}
             addToCart={() => addToCart(product)}
           />
         ))}
@@ -89,7 +100,8 @@ function App() {
             {cartProducts.map((product) => (
               <CartProduct
                 key={product.id}
-                title={product.name}
+                name={product.name}
+                photo={product.photo}
                 price={`R$${product.price}`}
                 onRemove={() => removeFromCart(product)}
               />

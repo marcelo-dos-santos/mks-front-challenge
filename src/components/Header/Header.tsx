@@ -4,7 +4,9 @@ import { Button } from "../Button/Button";
 
 export function Header({
   toggleCartVisibility,
+  productQtd,
 }: {
+  productQtd: number;
   toggleCartVisibility: () => void;
 }) {
   return (
@@ -17,7 +19,7 @@ export function Header({
         <div className="cart">
           <Button
             icon={FaShoppingCart}
-            title="Pedidos (0)"
+            title={`Pedidos (${productQtd})`}
             onClick={toggleCartVisibility}
           />
         </div>

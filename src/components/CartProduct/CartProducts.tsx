@@ -1,16 +1,17 @@
 import { Container, ProductDetails, ProductQuant } from "./styles";
 import { QuantityButton } from "../QuantityButton/QuantityButton";
-import productImg from "../../assets/apple-watch.png";
 
 interface CartProductProps {
-  title: string;
+  name: string;
   price: string;
+  photo: string;
   onRemove: () => void;
 }
 
 export function CartProduct({
-  title,
+  name,
   price,
+  photo,
   onRemove,
   ...rest
 }: CartProductProps) {
@@ -21,9 +22,9 @@ export function CartProduct({
   return (
     <Container {...rest}>
       <ProductDetails>
-        <img src={productImg} alt="" />
+        <img src={photo} alt="" />
         <div className="productTitleAndPrice">
-          <h1>{title}</h1>
+          <h1>{name}</h1>
         </div>
         <ProductQuant>
           <span>Qtd:</span>

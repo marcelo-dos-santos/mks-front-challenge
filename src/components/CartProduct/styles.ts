@@ -58,6 +58,7 @@ export const ProductDetails = styled.div`
     > h1 {
       display: flex;
       align-items: center;
+      width: 80px;
       gap: 8px;
       font-size: 16px;
       font-weight: 400;

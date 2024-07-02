@@ -29,7 +29,7 @@ export const Content = styled.div`
 
   @media (min-width: 768px) {
     max-width: 1183px;
-    margin: 50px auto;
+    margin: 5px auto;
   }
 `;
 

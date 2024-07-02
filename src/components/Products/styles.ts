@@ -2,9 +2,9 @@ import { styled } from "styled-components";
 
 export const Container = styled.div`
   max-width: 272px;
-  max-height: 320px;
+  max-height: 370px;
   width: 272px;
-  height: 320px;
+  height: 370px;
   box-shadow: 0px 2px 8px 0px #00000022;
   border: 1px;
   border-top-left-radius: 10px;
@@ -60,6 +60,8 @@ export const ProductDetails = styled.div`
     display: flex;
     justify-content: space-between;
     gap: 20px;
+    align-items: center;
+    height: 60px;
 
     > h1 {
       display: flex;
@@ -68,7 +70,6 @@ export const ProductDetails = styled.div`
       font-size: 16px;
       font-weight: 400;
       line-height: 19px;
-      margin-bottom: 12px;
       width: 124px;
     }
   }
