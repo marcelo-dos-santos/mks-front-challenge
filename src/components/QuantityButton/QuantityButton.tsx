@@ -1,19 +1,35 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Container } from "./styles";
 
 interface QuantityButtonProps {
   initialQuantity: number;
+  onQuantityChange: (quantity: number) => void;
 }
 
-export function QuantityButton({ initialQuantity }: QuantityButtonProps) {
+export function QuantityButton({
+  initialQuantity,
+  onQuantityChange,
+}: QuantityButtonProps) {
   const [quantity, setQuantity] = useState(initialQuantity);
 
+  useEffect(() => {
+    setQuantity(initialQuantity);
+  }, [initialQuantity]);
+
   const handleIncrement = () => {
-    setQuantity((prevQuantity) => (prevQuantity < 99 ? prevQuantity + 1 : 99));
+    setQuantity((prevQuantity) => {
+      const newQuantity = prevQuantity < 99 ? prevQuantity + 1 : 99;
+      onQuantityChange(newQuantity);
+      return newQuantity;
+    });
   };
 
   const handleDecrement = () => {
-    setQuantity((prevQuantity) => (prevQuantity > 0 ? prevQuantity - 1 : 0));
+    setQuantity((prevQuantity) => {
+      const newQuantity = prevQuantity > 0 ? prevQuantity - 1 : 0;
+      onQuantityChange(newQuantity);
+      return newQuantity;
+    });
   };
 
   return (

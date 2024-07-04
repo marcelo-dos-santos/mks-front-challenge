@@ -30,14 +30,16 @@ function App() {
 
   const addToCart = (product: Product) => {
     setCartProducts((prevProducts) => {
-      const productIndex = prevProducts.findIndex(
+      const productExists = prevProducts.find(
         (cartProduct) => cartProduct.id === product.id
       );
 
-      if (productIndex !== -1) {
-        const updatedProducts = [...prevProducts];
-        updatedProducts[productIndex].quantity += 1;
-        return updatedProducts;
+      if (productExists) {
+        return prevProducts.map((cartProduct) =>
+          cartProduct.id === product.id
+            ? { ...cartProduct, quantity: cartProduct.quantity + 1 }
+            : cartProduct
+        );
       }
 
       return [...prevProducts, { ...product, quantity: 1 }];
@@ -46,11 +48,26 @@ function App() {
 
   const removeFromCart = (productToRemove: Product) => {
     setCartProducts((prevProducts) => {
-      return prevProducts.filter((product) => product !== productToRemove);
+      return prevProducts.filter(
+        (product) => product.id !== productToRemove.id
+      );
     });
   };
 
-  const total = cartProducts.reduce((sum, product) => sum + product.price, 0);
+  const updateProductQuantity = (productId: number, newQuantity: number) => {
+    setCartProducts((prevProducts) =>
+      prevProducts.map((product) =>
+        product.id === productId
+          ? { ...product, quantity: newQuantity }
+          : product
+      )
+    );
+  };
+
+  const total = cartProducts.reduce(
+    (sum, product) => sum + product.price * product.quantity,
+    0
+  );
 
   const formattedTotal = total.toFixed(2);
 
@@ -68,7 +85,7 @@ function App() {
         const products = response.data.products.map((product: any) => ({
           ...product,
           price: parseFloat(product.price),
-          quantity: 1,
+          quantity: 0,
         }));
 
         setProductsFromAPI(products);
@@ -82,7 +99,7 @@ function App() {
 
   useEffect(() => {
     setQtdProducts(
-      cartProducts.reduce((acc, product) => acc + product.quantity, 0)
+      cartProducts.reduce((sum, product) => sum + product.quantity, 0)
     );
   }, [cartProducts]);
 
@@ -121,6 +138,9 @@ function App() {
                 price={`R$${product.price}`}
                 quantity={product.quantity}
                 onRemove={() => removeFromCart(product)}
+                onQuantityChange={(newQuantity) =>
+                  updateProductQuantity(product.id, newQuantity)
+                }
               />
             ))}
           </div>

@@ -7,6 +7,7 @@ interface CartProductProps {
   photo: string;
   quantity: number;
   onRemove: () => void;
+  onQuantityChange: (quantity: number) => void;
 }
 
 export function CartProduct({
@@ -15,6 +16,7 @@ export function CartProduct({
   photo,
   quantity,
   onRemove,
+  onQuantityChange,
   ...rest
 }: CartProductProps) {
   const handleRemoveClick = () => {
@@ -30,7 +32,10 @@ export function CartProduct({
         </div>
         <ProductQuant>
           <span>Qtd:</span>
-          <QuantityButton initialQuantity={quantity} />
+          <QuantityButton
+            initialQuantity={quantity}
+            onQuantityChange={onQuantityChange}
+          />
         </ProductQuant>
         <span className="price">{price}</span>
       </ProductDetails>
