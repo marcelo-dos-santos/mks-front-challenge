@@ -60,32 +60,44 @@ export default {
 ## Como Rodar o Projeto
 
 - Clone o repositório:
+
+```js
   git clone https://github.com/seu-usuario/mks-front-end-challenge.git
+```
 
 - Navegue até o diretório do projeto:
 
+```js
 cd mks-front-end-challenge
+```
 
 - Instale as dependências:
 
+```js
 npm install
+```
 
 - Inicie o servidor de desenvolvimento:
 
+```js
 npm run dev
+```
 
 Abra o navegador e acesse:
 
+```js
 http://localhost:3000
+```
 
 ## Exemplo de Código
 
+```js
 // Exemplo: Adicionando produtos ao carrinho e atualizando quantidade
 const addToCart = (product: Product) => {
-setCartProducts((prevProducts) => {
-const productExists = prevProducts.find(
-(cartProduct) => cartProduct.id === product.id
-);
+  setCartProducts((prevProducts) => {
+    const productExists = prevProducts.find(
+      (cartProduct) => cartProduct.id === product.id
+    );
 
     if (productExists) {
       return prevProducts.map((cartProduct) =>
@@ -96,9 +108,9 @@ const productExists = prevProducts.find(
     }
 
     return [...prevProducts, { ...product, quantity: 1 }];
-
-});
+  });
 };
+```
 
 ## Contato
 
