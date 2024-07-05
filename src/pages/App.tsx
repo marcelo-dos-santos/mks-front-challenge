@@ -24,6 +24,12 @@ function App() {
   const [productsFromAPI, setProductsFromAPI] = useState<Product[]>([]);
   const [qtdProducts, setQtdProducts] = useState(0);
 
+  const handleFinishBuy = () => {
+    alert("Produtos comprados com sucesso!");
+    setCartProducts([]);
+    setIsCartVisible(false);
+  };
+
   const toggleCartVisibility = () => {
     setIsCartVisible(!isCartVisible);
   };
@@ -148,7 +154,7 @@ function App() {
             <span>Total:</span>
             <span>R${formattedTotal}</span>
           </div>
-          <button className="checkout">
+          <button className="checkout" onClick={handleFinishBuy}>
             <span>Finalizar Compra</span>
           </button>
         </CartContent>

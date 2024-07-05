@@ -26,7 +26,7 @@ export function QuantityButton({
 
   const handleDecrement = () => {
     setQuantity((prevQuantity) => {
-      const newQuantity = prevQuantity > 0 ? prevQuantity - 1 : 0;
+      const newQuantity = prevQuantity > 1 ? prevQuantity - 1 : 1;
       onQuantityChange(newQuantity);
       return newQuantity;
     });
